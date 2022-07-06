@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "starlette-testclient"
+version = "0.0.0"
+description = "An awesome package is coming soon! 🎉"
+authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@email.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.7"
+dependencies = ["httpx>=0.23.0", "starlette"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+
+[tool.setuptools]
+license-files = ["LICENSE"]
+package-data = { "starlette_testclient" = ["py.typed"] }
+include-package-data = true
+zip-safe = false
+
+[project.urls]
+Homepage = "https://github.com/Kludex/starlette-testclient"
+Source = "https://github.com/Kludex/starlette-testclient"
+Twitter = "https://twitter.com/marcelotryle"
