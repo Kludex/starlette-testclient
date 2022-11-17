@@ -5,11 +5,9 @@ build-backend = 'hatchling.build'
 [project]
 name = "starlette-testclient"
 version = "0.0.0"
-description = "An awesome package is coming soon! 🎉"
+description = "A backport of Starlette TestClient using requests! ⏪️"
 readme = "README.md"
-authors = [
-    { name = "Marcelo Trylesinski", email = "marcelotryle@email.com" },
-]
+authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@email.com" }]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: MIT License",
@@ -22,10 +20,11 @@ classifiers = [
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
 ]
 license = "MIT"
 requires-python = ">=3.7"
-dependencies = []
+dependencies = ["starlette>=0.20.0", "requests"]
 optional-dependencies = {}
 
 [project.urls]
@@ -53,7 +52,10 @@ combine_as_imports = true
 
 [tool.pytest.ini_options]
 addopts = ["--strict-config", "--strict-markers"]
-filterwarnings = ["error"]
+filterwarnings = [
+    "error",
+    "ignore: You seem to already have a custom sys.excepthook handler installed. I'll skip installing Trio's custom handler, but this means MultiErrors will not show full tracebacks.:RuntimeWarning",
+]
 
 [tool.coverage.run]
 source_pkgs = ["starlette_testclient", "tests"]
