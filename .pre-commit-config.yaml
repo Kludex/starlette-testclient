@@ -33,3 +33,5 @@ repos:
     rev: v0.981
     hooks:
       - id: mypy
+        additional_dependencies:
+        - "types-requests"

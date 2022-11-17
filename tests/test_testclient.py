@@ -6,7 +6,6 @@ import anyio
 import pytest
 import sniffio
 import trio.lowlevel
-
 from starlette.applications import Starlette
 from starlette.middleware import Middleware
 from starlette.responses import JSONResponse

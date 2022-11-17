@@ -13,8 +13,8 @@ from urllib.parse import unquote, urljoin, urlsplit
 
 import anyio.abc
 import requests
+import requests.packages
 from anyio.streams.stapled import StapledObjectStream
-
 from starlette._utils import is_async_callable
 from starlette.types import Message, Receive, Scope, Send
 from starlette.websockets import WebSocketDisconnect
@@ -50,7 +50,7 @@ ASGI2App = typing.Callable[[Scope], ASGIInstance]
 ASGI3App = typing.Callable[[Scope, Receive, Send], typing.Awaitable[None]]
 
 
-class _HeaderDict(requests.packages.urllib3._collections.HTTPHeaderDict):
+class _HeaderDict(requests.packages.urllib3._collections.HTTPHeaderDict):  # type: ignore  # noqa: E501
     def get_all(self, key: str, default: str) -> str:
         return self.getheaders(key)
 
@@ -279,7 +279,7 @@ class _ASGIAdapter(requests.adapters.HTTPAdapter):
                 "body": io.BytesIO(),
             }
 
-        raw = requests.packages.urllib3.HTTPResponse(**raw_kwargs)
+        raw = requests.packages.urllib3.HTTPResponse(**raw_kwargs)  # type: ignore
         response = self.build_response(request, raw)
         if template is not None:
             response.template = template
@@ -480,7 +480,7 @@ class TestClient(requests.Session):
             files=files,
             auth=auth,
             timeout=timeout,
-            allow_redirects=allow_redirects,
+            allow_redirects=allow_redirects,  # type: ignore
             proxies=proxies,
             hooks=hooks,
             stream=stream,

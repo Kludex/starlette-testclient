@@ -1,6 +1,7 @@
 -e .
 
 trio==0.21.0
+types-requests
 
 # Linter & Formatter
 isort
