@@ -10,7 +10,7 @@ readme = "README.md"
 authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@email.com" }]
 classifiers = [
     "Development Status :: 3 - Alpha",
-    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: BSD License",
     "Intended Audience :: Developers",
     "Natural Language :: English",
     "Operating System :: OS Independent",
@@ -22,7 +22,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
-license = "MIT"
+license = "BSD-3-Clause"
 requires-python = ">=3.7"
 dependencies = ["starlette>=0.20.0", "requests"]
 optional-dependencies = {}
