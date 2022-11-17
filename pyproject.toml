@@ -4,7 +4,7 @@ build-backend = 'hatchling.build'
 
 [project]
 name = "starlette-testclient"
-version = "0.0.0"
+version = "0.1.0"
 description = "A backport of Starlette TestClient using requests! ⏪️"
 readme = "README.md"
 authors = [{ name = "Marcelo Trylesinski", email = "marcelotryle@email.com" }]
