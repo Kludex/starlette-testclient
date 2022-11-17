@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/Kludex/python-template",
+  "commit": "ca4f5f3c5ce2753c72c883a3b7655cac51feee5d",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_slug": "starlette-testclient",
+      "package": "starlette_testclient",
+      "description": "A backport of Starlette TestClient using requests! ⏪️",
+      "full_name": "Marcelo Trylesinski",
+      "email": "marcelotryle@email.com",
+      "github": "Kludex",
+      "twitter": "marcelotryle",
+      "_template": "https://github.com/Kludex/python-template"
+    }
+  },
+  "directory": null
+}
