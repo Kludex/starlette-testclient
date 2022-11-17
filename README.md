@@ -17,13 +17,31 @@
     <img src="https://img.shields.io/github/license/Kludex/starlette-testclient">
 </p>
 
-An awesome package is coming soon! 🎉
+This is a backport of Starlette's `TestClient` using `requests` instead of `httpx`.
+
+The reason behind here is to give more time for people to migrate.
 
 ## Installation
 
 ```bash
 pip install starlette-testclient
 ```
+
+## Usage
+
+You just need to replace the import statement from:
+
+```python
+from starlette.testclient import TestClient
+```
+
+to:
+
+```python
+from starlette_testclient import TestClient
+```
+
+Easy, right? :sweat_smile:
 
 ## License
 
