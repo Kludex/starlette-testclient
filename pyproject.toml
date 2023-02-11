@@ -24,7 +24,10 @@ classifiers = [
 ]
 license = "BSD-3-Clause"
 requires-python = ">=3.7"
-dependencies = ["starlette", "requests"]
+dependencies = [
+    "starlette >= 0.20.1",
+    "requests",
+]
 optional-dependencies = {}
 
 [project.urls]
