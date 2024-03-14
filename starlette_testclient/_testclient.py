@@ -447,7 +447,7 @@ class TestClient(requests.Session):
         if self.portal is not None:
             yield self.portal
         else:
-            with anyio.start_blocking_portal(**self.async_backend) as portal:
+            with anyio.from_thread.start_blocking_portal(**self.async_backend) as portal:
                 yield portal
 
     def request(  # type: ignore
@@ -512,7 +512,7 @@ class TestClient(requests.Session):
     def __enter__(self) -> "TestClient":
         with contextlib.ExitStack() as stack:
             self.portal = portal = stack.enter_context(
-                anyio.start_blocking_portal(**self.async_backend)
+                anyio.from_thread.start_blocking_portal(**self.async_backend)
             )
 
             @stack.callback
