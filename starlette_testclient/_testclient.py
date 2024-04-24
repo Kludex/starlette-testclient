@@ -24,6 +24,10 @@ if sys.version_info >= (3, 8):  # pragma: no cover
 else:  # pragma: no cover
     from typing_extensions import TypedDict
 
+try:
+    start_blocking_portal = anyio.from_thread.start_blocking_portal
+except AttributeError:  # pragma: no cover
+    start_blocking_portal = anyio.start_blocking_portal
 
 _PortalFactoryType = typing.Callable[
     [], typing.ContextManager[anyio.abc.BlockingPortal]
@@ -447,7 +451,7 @@ class TestClient(requests.Session):
         if self.portal is not None:
             yield self.portal
         else:
-            with anyio.from_thread.start_blocking_portal(**self.async_backend) as portal:
+            with start_blocking_portal(**self.async_backend) as portal:
                 yield portal
 
     def request(  # type: ignore
@@ -512,7 +516,7 @@ class TestClient(requests.Session):
     def __enter__(self) -> "TestClient":
         with contextlib.ExitStack() as stack:
             self.portal = portal = stack.enter_context(
-                anyio.from_thread.start_blocking_portal(**self.async_backend)
+                start_blocking_portal(**self.async_backend)
             )
 
             @stack.callback
