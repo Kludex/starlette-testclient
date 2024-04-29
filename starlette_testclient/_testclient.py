@@ -544,7 +544,7 @@ class TestClient(requests.Session):
         self.exit_stack.close()
 
     async def lifespan(self) -> None:
-        scope = {"type": "lifespan"}
+        scope = {"type": "lifespan", "asgi": {"version": "3.0"}}
         try:
             await self.app(scope, self.stream_receive.receive, self.stream_send.send)
         finally:
